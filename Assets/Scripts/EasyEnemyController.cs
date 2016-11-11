@@ -7,17 +7,15 @@ public class EasyEnemyController : MonoBehaviour {
 
     // screen coordinates
     public float bottom;
-    public float left;
-    public float width;
     public float height;
 
-    static public GameObject target;
+    public GameObject target;
 
     private Rigidbody2D rigidBody;
 
 	// Use this for initialization
 	void Start () {
-        Vector2 startPos = new Vector2(left + (Random.value < 0.5 ? 0 : width), bottom + height * Random.value);
+        Vector2 startPos = new Vector2(0, bottom + height * Random.value);
         transform.position = startPos;
         rigidBody = this.GetComponent<Rigidbody2D>();
     }
@@ -37,11 +35,11 @@ public class EasyEnemyController : MonoBehaviour {
         } else if (other.tag == "Sword")
         {
             //TODO
-            return;
+            Destroy(gameObject);
         } else if (other.tag == "Player")
         {
             //TODO
-            return;
+            Destroy(gameObject);
         }
     }
 }
