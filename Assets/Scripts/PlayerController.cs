@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour {
 
 	void Start () {
 
-		sword = this.GetComponent<GameObject> ();
+		sword = this.transform.GetChild (0).gameObject;
 		animator = this.GetComponent<Animator> ();
 
 		rb2d = GetComponent<Rigidbody2D> ();
@@ -81,9 +81,11 @@ public class PlayerController : MonoBehaviour {
 
 
 	bool AnimatorIsPlaying(){
-		return animator.GetCurrentAnimatorStateInfo(0).length > animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
+		return ( animator.GetCurrentAnimatorClipInfo (0).Length > animator.GetCurrentAnimatorStateInfo (0).normalizedTime ) ;
 	}
 
 	bool AnimatorIsPlaying(string stateName){
 		return AnimatorIsPlaying() && animator.GetCurrentAnimatorStateInfo(0).IsName(stateName);
 	}
+
+}
