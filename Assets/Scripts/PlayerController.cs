@@ -5,6 +5,11 @@ public class PlayerController : MonoBehaviour {
 
 	public int PlayerNo;
 	public float speed;
+    public GameObject bulletPrefab;
+    public GameObject muzzle;
+
+    [SerializeField]
+    private float bulletSpeed;
 
 	private Rigidbody2D rb2d;
 	private Vector2 prevMovement;
@@ -14,9 +19,14 @@ public class PlayerController : MonoBehaviour {
 	private Animator animator;
 
 	private GameObject sword;
+    private bool ifHasGun = false;
+    private SpriteRenderer spriteRenderer;
+    private Vector3 direction;
+    private bool isFacingRight = true;
 
 	void Start () {
 
+        spriteRenderer = GetComponent<SpriteRenderer>();
 		sword = this.transform.GetChild (0).gameObject;
 		animator = this.GetComponent<Animator> ();
 
@@ -55,6 +65,7 @@ public class PlayerController : MonoBehaviour {
 
 		if (Input.GetKeyDown (attackKey)) {
 			animator.SetBool ("isAttacking", true);
+            Shoot();
 		} else {
 			animator.SetBool ("isAttacking", false);
 		}
@@ -74,6 +85,16 @@ public class PlayerController : MonoBehaviour {
 		float moveVertical = Input.GetAxis (vertAxis);
 
 		Vector2 movement = new Vector2 (moveHorizontal, moveVertical);
+        if(moveHorizontal< 0)
+        {
+            transform.localScale=new Vector2(-1, 1);
+            direction = Vector3.left;
+        }
+        else
+        {
+            transform.localScale = new Vector2(1, 1);
+            direction = Vector3.right;
+        }
 
 		rb2d.AddForce (movement * speed);
 
@@ -87,5 +108,14 @@ public class PlayerController : MonoBehaviour {
 	bool AnimatorIsPlaying(string stateName){
 		return AnimatorIsPlaying() && animator.GetCurrentAnimatorStateInfo(0).IsName(stateName);
 	}
+
+    private void Shoot()
+    {
+        Bullet newBullet = PoolManager.instance.GetBullet();
+        newBullet.transform.rotation = transform.rotation;
+        newBullet.transform.position = muzzle.transform.position;
+        newBullet.GetComponent<Rigidbody2D>().velocity = bulletSpeed * (direction * speed);
+
+    }
 
 }
