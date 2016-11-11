@@ -15,16 +15,16 @@ public class PlayerController : MonoBehaviour {
 	private Vector2 prevMovement;
 	private string horzAxis, vertAxis;
 	private string attackAnimName;
-	private KeyCode upKey, downKey, leftKey, rightKey, attackKey;
+	private KeyCode upKey, downKey, leftKey, rightKey, attackKey, passWeaponKey;
 	private Animator animator;
 
 	private GameObject sword;
-    private bool ifHasGun = false;
     private SpriteRenderer spriteRenderer;
     private Vector3 direction;
     private bool isFacingRight = true;
+    public bool hasGun = false;
 
-	void Start () {
+    void Start () {
 
         spriteRenderer = GetComponent<SpriteRenderer>();
 		sword = this.transform.GetChild (0).gameObject;
@@ -51,11 +51,21 @@ public class PlayerController : MonoBehaviour {
 			attackAnimName = "player1_attack";
 		}
 
+        passWeaponKey = KeyCode.Space;
+
 		sword.SetActive (false);
 
 	}
 
 	void Update () {
+        if (hasGun)
+        {
+            muzzle.SetActive(true);
+        }
+        else
+        {
+            muzzle.SetActive(false);
+        }
 
 		if (Input.GetKey (upKey) || Input.GetKey (downKey) || Input.GetKey (leftKey) || Input.GetKey (rightKey)) {
 			animator.SetBool ("isMoving", true);
@@ -64,8 +74,16 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		if (Input.GetKeyDown (attackKey)) {
-			animator.SetBool ("isAttacking", true);
-            Shoot();
+            if (hasGun)
+            {
+                Shoot();
+            }
+            else
+            {
+                animator.SetBool("isAttacking", true);
+            }
+			
+            
 		} else {
 			animator.SetBool ("isAttacking", false);
 		}
@@ -75,6 +93,11 @@ public class PlayerController : MonoBehaviour {
 		} else {
 			sword.SetActive (false);
 		}
+
+        if (Input.GetKeyDown(passWeaponKey))
+        {
+            hasGun = !hasGun;
+        }
 
 
 	}
