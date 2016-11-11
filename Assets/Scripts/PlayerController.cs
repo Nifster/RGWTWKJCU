@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour {
 			downKey = KeyCode.DownArrow;
 			leftKey = KeyCode.LeftArrow;
 			rightKey = KeyCode.RightArrow;
-			attackKey = KeyCode.Keypad1;
+			attackKey = KeyCode.RightControl;
 			attackAnimName = "player2_attack";
 		} else {
 			horzAxis = "Horizontal";
@@ -96,7 +96,7 @@ public class PlayerController : MonoBehaviour {
             direction = Vector3.right;
         }
 
-		rb2d.AddForce (movement * speed);
+		rb2d.velocity = (movement * speed);
 
 	}
 
@@ -114,7 +114,7 @@ public class PlayerController : MonoBehaviour {
         Bullet newBullet = PoolManager.instance.GetBullet();
         newBullet.transform.rotation = transform.rotation;
         newBullet.transform.position = muzzle.transform.position;
-        newBullet.GetComponent<Rigidbody2D>().velocity = bulletSpeed * (direction * speed);
+        newBullet.GetComponent<Rigidbody2D>().velocity =  (bulletSpeed + speed) *direction;
 
     }
 
