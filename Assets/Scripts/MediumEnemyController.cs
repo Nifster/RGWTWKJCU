@@ -6,6 +6,15 @@ public class MediumEnemyController : EasyEnemyController {
     public float knockback;
 
     private bool hasArmor = true;
+    private bool beingKnockedBack = false;
+
+    protected new void FixedUpdate()
+    {
+        if (!beingKnockedBack)
+        {
+            base.FixedUpdate();
+        }
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -13,7 +22,9 @@ public class MediumEnemyController : EasyEnemyController {
         {
             Vector3 dist = transform.position - other.gameObject.transform.position;
             // knockback
-            rigidBody.MovePosition(transform.position + knockback * dist.normalized);
+            rigidBody.velocity = -rigidBody.velocity.normalized * knockback;
+            beingKnockedBack = true;
+            Invoke("endKnockback", 1.0f);
             hasArmor = false;
         } else if ((other.tag == "Bullet") && (!hasArmor))
         {
@@ -24,5 +35,10 @@ public class MediumEnemyController : EasyEnemyController {
             //TODO
             Destroy(gameObject);
         }
+    }
+
+    void endKnockback()
+    {
+        beingKnockedBack = false;
     }
 }

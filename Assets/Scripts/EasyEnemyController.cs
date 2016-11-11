@@ -20,7 +20,7 @@ public class EasyEnemyController : MonoBehaviour {
         rigidBody = this.GetComponent<Rigidbody2D>();
     }
 	
-	void FixedUpdate () {
+	protected void FixedUpdate () {
         Vector2 dist = target.transform.position - transform.position;
         rigidBody.AddForce(dist.normalized * speed);
 	}
