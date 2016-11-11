@@ -11,7 +11,7 @@ public class EasyEnemyController : MonoBehaviour {
 
     public GameObject target;
 
-    private Rigidbody2D rigidBody;
+    protected Rigidbody2D rigidBody;
 
 	// Use this for initialization
 	void Start () {
@@ -29,7 +29,6 @@ public class EasyEnemyController : MonoBehaviour {
     {
         if (other.tag == "Bullet")
         {
-            Debug.Log("collided with bullet");
             other.gameObject.GetComponent<Bullet>().Deactivate();
             Destroy(gameObject);
         } else if (other.tag == "Sword")
