@@ -110,12 +110,12 @@ public class PlayerController : MonoBehaviour {
 		Vector2 movement = new Vector2 (moveHorizontal, moveVertical);
         if(moveHorizontal< 0)
         {
-            transform.localScale=new Vector2(-1, 1);
+            transform.localScale=new Vector2(1, 1);
             direction = Vector3.left;
         }
         else
         {
-            transform.localScale = new Vector2(1, 1);
+            transform.localScale = new Vector2(-1, 1);
             direction = Vector3.right;
         }
 
