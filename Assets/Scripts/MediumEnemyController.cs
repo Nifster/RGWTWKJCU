@@ -18,6 +18,16 @@ public class MediumEnemyController : EasyEnemyController {
 
     void OnCollisionEnter2D(Collision2D other)
     {
+        if (other.gameObject.tag == "Player")
+        {
+            //TODO
+            GameManager.instance.LoseHealth();
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+
         if (other.gameObject.tag == "Sword")
         {
             if (hasArmor)
@@ -28,21 +38,12 @@ public class MediumEnemyController : EasyEnemyController {
                 beingKnockedBack = true;
                 Invoke("endKnockback", 1.0f);
                 hasArmor = false;
-            } else
+            }
+            else
             {
                 Destroy(gameObject);
             }
-        } else if (other.gameObject.tag == "Player")
-        {
-            //TODO
-            GameManager.instance.LoseHealth();
-        }
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-
-        if (other.gameObject.tag == "Bullet")
+        } else if (other.gameObject.tag == "Bullet")
         {
             if (!hasArmor)
             {
