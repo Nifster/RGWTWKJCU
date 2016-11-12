@@ -1,21 +1,17 @@
 fileFormatVersion: 2
-guid: 8eef451c43407054e9f079ac018eada2
-timeCreated: 1478942264
+guid: 07af24a6f695157419c5fe9517541e5d
+timeCreated: 1478943788
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: player2_walk_0
-    21300002: player2_walk_1
-    21300004: player2_walk_2
-    21300006: player2_walk_3
-    21300008: player2_walk_4
-    21300010: player2_walk_5
-    21300012: player2_walk_6
-    21300014: player2_walk_7
-    21300016: player2_walk_8
-    21300018: player2_walk_9
-    21300020: player2_walk_10
-    21300022: player2_walk_11
+    21300000: thumbdrive_idle_0
+    21300002: thumbdrive_idle_1
+    21300004: thumbdrive_idle_2
+    21300006: thumbdrive_idle_3
+    21300008: thumbdrive_idle_4
+    21300010: thumbdrive_idle_5
+    21300012: thumbdrive_idle_6
+    21300014: thumbdrive_idle_7
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -65,156 +61,104 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: player2_walk_0
+      name: thumbdrive_idle_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 960
-        width: 320
-        height: 320
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: player2_walk_1
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 960
-        width: 320
-        height: 320
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: player2_walk_2
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 960
-        width: 320
-        height: 320
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: player2_walk_3
-      rect:
-        serializedVersion: 2
-        x: 0
+        x: 20
         y: 640
-        width: 320
-        height: 320
+        width: 280
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: player2_walk_4
+      name: thumbdrive_idle_1
       rect:
         serializedVersion: 2
-        x: 320
+        x: 340
         y: 640
-        width: 320
-        height: 320
+        width: 280
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: player2_walk_5
+      name: thumbdrive_idle_2
       rect:
         serializedVersion: 2
-        x: 640
+        x: 660
         y: 640
-        width: 320
-        height: 320
+        width: 280
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: player2_walk_6
+      name: thumbdrive_idle_3
       rect:
         serializedVersion: 2
-        x: 0
+        x: 20
         y: 320
-        width: 320
-        height: 320
+        width: 280
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: player2_walk_7
+      name: thumbdrive_idle_4
       rect:
         serializedVersion: 2
-        x: 320
+        x: 370
         y: 320
-        width: 320
-        height: 320
+        width: 240
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: player2_walk_8
+      name: thumbdrive_idle_5
       rect:
         serializedVersion: 2
-        x: 640
+        x: 690
         y: 320
-        width: 320
-        height: 320
+        width: 240
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: player2_walk_9
+      name: thumbdrive_idle_6
       rect:
         serializedVersion: 2
-        x: 0
+        x: 50
         y: 0
-        width: 320
-        height: 320
+        width: 240
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: player2_walk_10
+      name: thumbdrive_idle_7
       rect:
         serializedVersion: 2
-        x: 320
+        x: 370
         y: 0
-        width: 320
-        height: 320
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: player2_walk_11
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 0
-        width: 320
-        height: 320
+        width: 240
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

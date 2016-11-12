@@ -78,6 +78,7 @@ public class PlayerController : MonoBehaviour {
 		if (Input.GetKeyDown (attackKey)) {
             if (hasGun)
             {
+                animator.SetBool("isShooting", true);
                 Shoot();
             }
             else
@@ -99,6 +100,7 @@ public class PlayerController : MonoBehaviour {
     void EndAttack()
     {
         animator.SetBool ("isAttacking", false);
+        animator.SetBool("isShooting", false);
         sword.SetActive (false);
     }
 
