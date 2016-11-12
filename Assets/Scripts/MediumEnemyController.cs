@@ -3,25 +3,13 @@ using System.Collections;
 
 public class MediumEnemyController : EasyEnemyController {
 
-    public float knockback;
-
     private bool hasArmor = true;
-    private bool beingKnockedBack = false;
 
     protected new void FixedUpdate()
     {
         if (!beingKnockedBack)
         {
             base.FixedUpdate();
-        }
-    }
-
-    void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            //TODO
-            GameManager.instance.LoseHealth();
         }
     }
 
@@ -32,11 +20,7 @@ public class MediumEnemyController : EasyEnemyController {
         {
             if (hasArmor)
             {
-                Vector3 dist = transform.position - other.gameObject.transform.position;
-                // knockback
-                rigidBody.velocity = -rigidBody.velocity.normalized * knockback;
-                beingKnockedBack = true;
-                Invoke("endKnockback", 1.0f);
+                knockedBack();
                 hasArmor = false;
             }
             else
@@ -53,8 +37,4 @@ public class MediumEnemyController : EasyEnemyController {
         }
     }
 
-    void endKnockback()
-    {
-        beingKnockedBack = false;
-    }
 }
