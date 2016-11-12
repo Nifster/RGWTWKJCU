@@ -2,8 +2,9 @@
 using System.Collections;
 
 public class EnemyCreator : MonoBehaviour {
-    public float spawnTime = 7f;        // The amount of time between each spawn.
-    public float spawnDelay = 2f;       // The amount of time before spawning starts.
+    public float spawnTime;        // The amount of time between each spawn.
+    public float spawnDelay;       // The amount of time before spawning starts.
+    public float startMediumTime;
 
     public GameObject player1;
     public GameObject player2;
@@ -14,11 +15,10 @@ public class EnemyCreator : MonoBehaviour {
     {
         EasyEnemyController.speed = 5;
         // Start calling the Spawn function repeatedly after a delay .
-        InvokeRepeating("SpawnEasy", spawnDelay, spawnTime);
-        InvokeRepeating("SpawnMedium", spawnTime*4, spawnTime);
+        InvokeRepeating("Spawn", spawnDelay, spawnTime);
     }
 
-    void Spawn(GameObject enemy)
+    void SpawnEnemy(GameObject enemy)
     {
         EasyEnemyController enemy1 = Instantiate(enemy).GetComponent<EasyEnemyController>();
         enemy1.target = player1;
@@ -28,13 +28,21 @@ public class EnemyCreator : MonoBehaviour {
         enemy2.start_x = 5;
     }
 
-    void SpawnEasy()
+    void Spawn()
     {
-        Spawn(easyEnemy);
-    }
+        if (Time.time < startMediumTime)
+        {
+            SpawnEnemy(easyEnemy);
+        } else
+        {
+            if (Random.value < 0.5)
+            {
+                SpawnEnemy(easyEnemy);
+            } else
+            {
+                SpawnEnemy(mediumEnemy);
+            }
 
-    void SpawnMedium()
-    {
-        Spawn(mediumEnemy);
+        }
     }
 }
