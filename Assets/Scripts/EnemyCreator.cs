@@ -45,11 +45,11 @@ public class EnemyCreator : MonoBehaviour {
         EasyEnemyController enemy1 = Instantiate(Random.value < 0.5 ? easyEnemy : mediumEnemy)
             .GetComponent<EasyEnemyController>();
         enemy1.target = player1;
-        enemy1.start_x = -5;
+        enemy1.start_x = -15;
         EasyEnemyController enemy2 = Instantiate(Random.value < 0.5 ? easyEnemy : mediumEnemy)
             .GetComponent<EasyEnemyController>();
         enemy2.target = player2;
-        enemy2.start_x = 5;
+        enemy2.start_x = 15;
 
         Invoke("Spawn", spawnInterval);
     }
