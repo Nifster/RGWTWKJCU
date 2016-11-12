@@ -113,7 +113,7 @@ public class PlayerController : MonoBehaviour {
             transform.localScale=new Vector2(1, 1);
             direction = Vector3.left;
         }
-        else
+        else if (moveHorizontal > 0)
         {
             transform.localScale = new Vector2(-1, 1);
             direction = Vector3.right;
