@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour {
 
 	private GameObject sword;
     private SpriteRenderer spriteRenderer;
-    private Vector3 direction;
+    private Vector3 direction = Vector3.left;
     private bool isFacingRight = true;
     public bool hasGun = false;
 

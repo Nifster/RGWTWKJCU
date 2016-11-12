@@ -16,9 +16,9 @@ public class MediumEnemyController : EasyEnemyController {
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.tag == "Sword")
+        if (other.gameObject.tag == "Sword")
         {
             if (hasArmor)
             {
@@ -30,14 +30,13 @@ public class MediumEnemyController : EasyEnemyController {
                 hasArmor = false;
             } else
             {
-                other.gameObject.GetComponent<Bullet>().Deactivate();
                 Destroy(gameObject);
             }
-        } else if ((other.tag == "Bullet") && (!hasArmor))
+        } else if ((other.gameObject.tag == "Bullet") && (!hasArmor))
         {
             other.gameObject.GetComponent<Bullet>().Deactivate();
             Destroy(gameObject);
-        } else if (other.tag == "Player")
+        } else if (other.gameObject.tag == "Player")
         {
             //TODO
             GameManager.instance.LoseHealth();
