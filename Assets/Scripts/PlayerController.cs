@@ -81,17 +81,13 @@ public class PlayerController : MonoBehaviour {
             else
             {
                 animator.SetBool("isAttacking", true);
+                sword.SetActive (true);
+                AudioManager.instance.LightsaberSFX();
             }
 			
             
 		} else {
 			animator.SetBool ("isAttacking", false);
-		}
-
-		if (AnimatorIsPlaying (attackAnimName)) {
-			sword.SetActive (true);
-            Debug.Log("Clang");
-		} else {
 			sword.SetActive (false);
 		}
 
@@ -139,6 +135,7 @@ public class PlayerController : MonoBehaviour {
         newBullet.transform.rotation = transform.rotation;
         newBullet.transform.position = muzzle.transform.position;
         newBullet.GetComponent<Rigidbody2D>().velocity =  (bulletSpeed + speed) *direction;
+        AudioManager.instance.ShootSFX();
 
     }
 
