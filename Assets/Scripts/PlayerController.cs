@@ -38,8 +38,8 @@ public class PlayerController : MonoBehaviour {
 			downKey = KeyCode.DownArrow;
 			leftKey = KeyCode.LeftArrow;
 			rightKey = KeyCode.RightArrow;
-			attackKey = KeyCode.RightControl;
-			attackAnimName = "player2_attack";
+			attackKey = KeyCode.Slash;
+			attackAnimName = "player1_attack";
 		} else {
 			horzAxis = "Horizontal";
 			vertAxis = "Vertical";
@@ -90,6 +90,7 @@ public class PlayerController : MonoBehaviour {
 
 		if (AnimatorIsPlaying (attackAnimName)) {
 			sword.SetActive (true);
+            Debug.Log("Clang");
 		} else {
 			sword.SetActive (false);
 		}
