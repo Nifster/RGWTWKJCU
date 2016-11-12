@@ -28,4 +28,12 @@ public class Bullet : MonoBehaviour {
         transform.position = new Vector2(1000, 1000); //offscreen
         
     }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag == "Background")
+        {
+            Deactivate();
+        }
+    }
 }
