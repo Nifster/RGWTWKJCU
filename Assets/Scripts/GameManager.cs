@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour {
 
     public int health;
 
+    public GameObject player1;
+    public GameObject player2;
    
 
 
@@ -37,6 +39,10 @@ public class GameManager : MonoBehaviour {
             if(health <= 0)
             {
                 Debug.Log("Game Over");
+            } else
+            {
+                player1.GetComponent<PlayerController>().goInvincible();
+                player2.GetComponent<PlayerController>().goInvincible();
             }
         }
         else
