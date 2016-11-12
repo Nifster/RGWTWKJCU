@@ -39,7 +39,6 @@ public class EasyEnemyController : MonoBehaviour {
         {
             //TODO
             GameManager.instance.LoseHealth();
-            Destroy(gameObject);
         }
     }
 }

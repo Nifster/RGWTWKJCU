@@ -34,7 +34,6 @@ public class MediumEnemyController : EasyEnemyController {
         {
             //TODO
             GameManager.instance.LoseHealth();
-            Destroy(gameObject);
         }
     }
 
