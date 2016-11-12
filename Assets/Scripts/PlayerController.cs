@@ -84,11 +84,6 @@ public class PlayerController : MonoBehaviour {
                 sword.SetActive (true);
                 AudioManager.instance.LightsaberSFX();
             }
-			
-            
-		} else {
-			animator.SetBool ("isAttacking", false);
-			sword.SetActive (false);
 		}
 
         if (Input.GetKeyDown(passWeaponKey))
@@ -98,6 +93,12 @@ public class PlayerController : MonoBehaviour {
 
 
 	}
+
+    void EndAttack()
+    {
+        animator.SetBool ("isAttacking", false);
+        sword.SetActive (false);
+    }
 
 	void FixedUpdate () {
 
