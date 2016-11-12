@@ -81,17 +81,12 @@ public class PlayerController : MonoBehaviour {
             else
             {
                 animator.SetBool("isAttacking", true);
+                sword.SetActive (true);
             }
 			
             
 		} else {
 			animator.SetBool ("isAttacking", false);
-		}
-
-		if (AnimatorIsPlaying (attackAnimName)) {
-			sword.SetActive (true);
-            Debug.Log("Clang");
-		} else {
 			sword.SetActive (false);
 		}
 
