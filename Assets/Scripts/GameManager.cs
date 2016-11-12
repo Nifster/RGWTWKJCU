@@ -9,9 +9,12 @@ public class GameManager : MonoBehaviour {
 
     public int health;
 
+   
+
 
     // Use this for initialization
     void Start () {
+        
         instance = this;
         for (int i = 0; i < health; i++)
         {
@@ -19,6 +22,7 @@ public class GameManager : MonoBehaviour {
             newHealth.transform.SetParent(healthPanel.transform);
         }
     }
+
 	
 	// Update is called once per frame
 	void Update () {

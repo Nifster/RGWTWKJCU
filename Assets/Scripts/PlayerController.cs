@@ -82,6 +82,7 @@ public class PlayerController : MonoBehaviour {
             {
                 animator.SetBool("isAttacking", true);
                 sword.SetActive (true);
+                AudioManager.instance.LightsaberSFX();
             }
 			
             
@@ -134,6 +135,7 @@ public class PlayerController : MonoBehaviour {
         newBullet.transform.rotation = transform.rotation;
         newBullet.transform.position = muzzle.transform.position;
         newBullet.GetComponent<Rigidbody2D>().velocity =  (bulletSpeed + speed) *direction;
+        AudioManager.instance.ShootSFX();
 
     }
 
