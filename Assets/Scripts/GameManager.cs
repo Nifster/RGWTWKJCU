@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
 
     public static GameManager instance;
@@ -8,6 +9,7 @@ public class GameManager : MonoBehaviour {
     public GameObject healthPrefab;
 
     public int health;
+    public GameObject gameOverPanel;
 
     public GameObject player1;
     public GameObject player2;
@@ -25,10 +27,18 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    public void RestartGame()
+    {
+        SceneManager.LoadScene("main");
+    }
+
 	
 	// Update is called once per frame
 	void Update () {
-	
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene("main");
+        }
 	}
     public void LoseHealth()
     {
@@ -38,6 +48,7 @@ public class GameManager : MonoBehaviour {
             health--;
             if(health <= 0)
             {
+                gameOverPanel.SetActive(true);
                 Debug.Log("Game Over");
             } else
             {
@@ -48,6 +59,7 @@ public class GameManager : MonoBehaviour {
         else
         {
             //Game over
+            gameOverPanel.SetActive(true);
             Debug.Log("Game Over");
         }
         

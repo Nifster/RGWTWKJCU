@@ -22,6 +22,7 @@ public class MediumEnemyController : EasyEnemyController {
             {
                 knockedBack();
                 hasArmor = false;
+                GetComponent<Animator>().SetBool("isHit", true);
             }
             else
             {

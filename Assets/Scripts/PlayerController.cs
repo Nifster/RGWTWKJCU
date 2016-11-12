@@ -146,7 +146,7 @@ public class PlayerController : MonoBehaviour {
 
     public void goInvincible()
     {
-        GetComponent<BoxCollider2D>().enabled = false;
+       // GetComponent<BoxCollider2D>().enabled = false;
         Invoke("endInvincible", invincibleTime);
         InvokeRepeating("blink", 0f, 0.2f);
     }
@@ -158,7 +158,7 @@ public class PlayerController : MonoBehaviour {
 
     private void endInvincible()
     {
-        GetComponent<BoxCollider2D>().enabled = true;
+      //  GetComponent<BoxCollider2D>().enabled = true;
         CancelInvoke();
         GetComponent<SpriteRenderer>().enabled = true;
     }
