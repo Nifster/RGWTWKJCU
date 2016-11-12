@@ -18,14 +18,21 @@ public class MediumEnemyController : EasyEnemyController {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if ((other.tag == "Sword") && (hasArmor))
+        if (other.tag == "Sword")
         {
-            Vector3 dist = transform.position - other.gameObject.transform.position;
-            // knockback
-            rigidBody.velocity = -rigidBody.velocity.normalized * knockback;
-            beingKnockedBack = true;
-            Invoke("endKnockback", 1.0f);
-            hasArmor = false;
+            if (hasArmor)
+            {
+                Vector3 dist = transform.position - other.gameObject.transform.position;
+                // knockback
+                rigidBody.velocity = -rigidBody.velocity.normalized * knockback;
+                beingKnockedBack = true;
+                Invoke("endKnockback", 1.0f);
+                hasArmor = false;
+            } else
+            {
+                other.gameObject.GetComponent<Bullet>().Deactivate();
+                Destroy(gameObject);
+            }
         } else if ((other.tag == "Bullet") && (!hasArmor))
         {
             other.gameObject.GetComponent<Bullet>().Deactivate();
