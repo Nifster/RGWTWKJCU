@@ -3,6 +3,8 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour {
 
+    public static bool isInvincible = false;
+    public float invincibleTime;
 	public int PlayerNo;
 	public float speed;
     public GameObject bulletPrefab;
@@ -84,11 +86,6 @@ public class PlayerController : MonoBehaviour {
                 sword.SetActive (true);
                 AudioManager.instance.LightsaberSFX();
             }
-			
-            
-		} else {
-			animator.SetBool ("isAttacking", false);
-			sword.SetActive (false);
 		}
 
         if (Input.GetKeyDown(passWeaponKey))
@@ -98,6 +95,12 @@ public class PlayerController : MonoBehaviour {
 
 
 	}
+
+    void EndAttack()
+    {
+        animator.SetBool ("isAttacking", false);
+        sword.SetActive (false);
+    }
 
 	void FixedUpdate () {
 
@@ -139,6 +142,24 @@ public class PlayerController : MonoBehaviour {
 
     }
 
+    public void goInvincible()
+    {
+        GetComponent<BoxCollider2D>().enabled = false;
+        Invoke("endInvincible", invincibleTime);
+        InvokeRepeating("blink", 0f, 0.2f);
+    }
+
+    public void blink()
+    {
+        GetComponent<SpriteRenderer>().enabled = !GetComponent<SpriteRenderer>().enabled;
+    }
+
+    private void endInvincible()
+    {
+        GetComponent<BoxCollider2D>().enabled = true;
+        CancelInvoke();
+        GetComponent<SpriteRenderer>().enabled = true;
+    }
     
 
 }
