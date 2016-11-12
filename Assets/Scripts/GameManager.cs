@@ -26,7 +26,16 @@ public class GameManager : MonoBehaviour {
 	}
     public void LoseHealth()
     {
-        Destroy(healthPanel.transform.GetChild(health-1).gameObject);
-        health--;
+        if (health > 0)
+        {
+            Destroy(healthPanel.transform.GetChild(health - 1).gameObject);
+            health--;
+        }
+        else
+        {
+            //Game over
+            Debug.Log("Game Over");
+        }
+        
     }
 }
