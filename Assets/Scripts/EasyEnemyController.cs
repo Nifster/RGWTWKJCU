@@ -30,6 +30,7 @@ public class EasyEnemyController : MonoBehaviour {
         }
         Vector2 dist = target.transform.position - transform.position;
         rigidBody.AddForce(dist.normalized * speed);
+        transform.localScale = new Vector2(rigidBody.velocity.x > 0 ? -1 : 1, 1);
 	}
 
     void OnCollisionEnter2D(Collision2D other)
