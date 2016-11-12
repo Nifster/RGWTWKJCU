@@ -38,6 +38,7 @@ public class EasyEnemyController : MonoBehaviour {
         } else if (other.tag == "Player")
         {
             //TODO
+            GameManager.instance.LoseHealth();
             Destroy(gameObject);
         }
     }

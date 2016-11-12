@@ -3,14 +3,30 @@ using System.Collections;
 using System.Collections.Generic;
 public class GameManager : MonoBehaviour {
 
+    public static GameManager instance;
+    public GameObject healthPanel;
+    public GameObject healthPrefab;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
+    public int health;
+
+
+    // Use this for initialization
+    void Start () {
+        instance = this;
+        for (int i = 0; i < health; i++)
+        {
+            GameObject newHealth = Instantiate(healthPrefab);
+            newHealth.transform.SetParent(healthPanel.transform);
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () {
 	
 	}
+    public void LoseHealth()
+    {
+        Destroy(healthPanel.transform.GetChild(health-1).gameObject);
+        health--;
+    }
 }

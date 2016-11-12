@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour {
 	public float speed;
     public GameObject bulletPrefab;
     public GameObject muzzle;
-
+    
     [SerializeField]
     private float bulletSpeed;
 
@@ -140,5 +140,7 @@ public class PlayerController : MonoBehaviour {
         newBullet.GetComponent<Rigidbody2D>().velocity =  (bulletSpeed + speed) *direction;
 
     }
+
+    
 
 }
