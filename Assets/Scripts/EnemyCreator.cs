@@ -6,6 +6,7 @@ public class EnemyCreator : MonoBehaviour {
     public float spawnDelay;       // The amount of time before spawning starts.
     public float difficultyRate;
     public float difficultyUpdateInterval;
+    public float maxSpeed;
     private float lastDifficultyUpdate = 0;
 
     public GameObject player1;
@@ -36,7 +37,11 @@ public class EnemyCreator : MonoBehaviour {
         {
             difficultyUpdateInterval = Time.time;
             spawnInterval = spawnInterval / difficultyRate;
-            EasyEnemyController.speed = EasyEnemyController.speed * difficultyRate;
+            if (EasyEnemyController.speed < maxSpeed)
+            {
+                EasyEnemyController.speed = EasyEnemyController.speed * difficultyRate;
+            }
+            Debug.Log("speed: " + EasyEnemyController.speed + ", interval: " + spawnInterval);
         }
 
         if (Random.value < 0.5)

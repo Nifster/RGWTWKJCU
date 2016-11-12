@@ -13,6 +13,8 @@ public class EasyEnemyController : MonoBehaviour {
     public GameObject target;
 
     protected Rigidbody2D rigidBody;
+    protected bool beingKnockedBack = false;
+    public float knockback;
 
 	// Use this for initialization
 	void Start () {
@@ -22,6 +24,10 @@ public class EasyEnemyController : MonoBehaviour {
     }
 	
 	protected void FixedUpdate () {
+        if (beingKnockedBack)
+        {
+            return;
+        }
         Vector2 dist = target.transform.position - transform.position;
         rigidBody.AddForce(dist.normalized * speed);
 	}
@@ -32,6 +38,7 @@ public class EasyEnemyController : MonoBehaviour {
         {
             //TODO
             GameManager.instance.LoseHealth();
+            knockedBack();
         }
     }
 
@@ -46,5 +53,18 @@ public class EasyEnemyController : MonoBehaviour {
             //TODO
             Destroy(gameObject);
         }
+    }
+
+    protected void knockedBack()
+    {
+        // knockback
+        rigidBody.velocity = -rigidBody.velocity.normalized * knockback;
+        beingKnockedBack = true;
+        Invoke("endKnockback", 1.0f);
+    }
+
+    void endKnockback()
+    {
+        beingKnockedBack = false;
     }
 }
