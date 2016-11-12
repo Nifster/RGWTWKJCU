@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: ec30dcaf323ebb24f8a612708d42ba6f
-timeCreated: 1478917983
+timeCreated: 1478925243
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -66,8 +66,8 @@ TextureImporter:
         y: 480
         width: 480
         height: 480
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.65, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -79,8 +79,8 @@ TextureImporter:
         y: 480
         width: 480
         height: 480
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.65, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -88,12 +88,12 @@ TextureImporter:
       name: player1_attack_2
       rect:
         serializedVersion: 2
-        x: 0
+        x: 3
         y: 0
         width: 480
         height: 480
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.65, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -105,8 +105,8 @@ TextureImporter:
         y: 0
         width: 480
         height: 480
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.65, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
