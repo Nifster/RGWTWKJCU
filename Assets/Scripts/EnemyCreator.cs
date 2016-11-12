@@ -2,9 +2,11 @@
 using System.Collections;
 
 public class EnemyCreator : MonoBehaviour {
-    public float spawnTime;        // The amount of time between each spawn.
+    public float spawnInterval;        // The amount of time between each spawn.
     public float spawnDelay;       // The amount of time before spawning starts.
-    public float startMediumTime;
+    public float difficultyRate;
+    public float difficultyUpdateInterval;
+    private float lastDifficultyUpdate = 0;
 
     public GameObject player1;
     public GameObject player2;
@@ -15,7 +17,7 @@ public class EnemyCreator : MonoBehaviour {
     {
         EasyEnemyController.speed = 5;
         // Start calling the Spawn function repeatedly after a delay .
-        InvokeRepeating("Spawn", spawnDelay, spawnTime);
+        Invoke("Spawn", spawnDelay);
     }
 
     void SpawnEnemy(GameObject enemy)
@@ -30,19 +32,21 @@ public class EnemyCreator : MonoBehaviour {
 
     void Spawn()
     {
-        if (Time.time < startMediumTime)
+        if (Time.time - lastDifficultyUpdate >= difficultyUpdateInterval)
+        {
+            difficultyUpdateInterval = Time.time;
+            spawnInterval = spawnInterval / difficultyRate;
+            EasyEnemyController.speed = EasyEnemyController.speed * difficultyRate;
+        }
+
+        if (Random.value < 0.5)
         {
             SpawnEnemy(easyEnemy);
         } else
         {
-            if (Random.value < 0.5)
-            {
-                SpawnEnemy(easyEnemy);
-            } else
-            {
-                SpawnEnemy(mediumEnemy);
-            }
-
+            SpawnEnemy(mediumEnemy);
         }
+
+        Invoke("Spawn", spawnInterval);
     }
 }
