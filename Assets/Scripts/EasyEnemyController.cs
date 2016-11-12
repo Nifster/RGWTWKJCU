@@ -28,11 +28,7 @@ public class EasyEnemyController : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Bullet")
-        {
-            other.gameObject.GetComponent<Bullet>().Deactivate();
-            Destroy(gameObject);
-        } else if (other.gameObject.tag == "Sword")
+        if (other.gameObject.tag == "Sword")
         {
             //TODO
             Destroy(gameObject);
@@ -40,6 +36,15 @@ public class EasyEnemyController : MonoBehaviour {
         {
             //TODO
             GameManager.instance.LoseHealth();
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Bullet")
+        {
+            other.gameObject.GetComponent<Bullet>().Deactivate();
+            Destroy(gameObject);
         }
     }
 }

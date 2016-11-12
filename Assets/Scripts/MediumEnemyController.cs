@@ -32,14 +32,23 @@ public class MediumEnemyController : EasyEnemyController {
             {
                 Destroy(gameObject);
             }
-        } else if ((other.gameObject.tag == "Bullet") && (!hasArmor))
-        {
-            other.gameObject.GetComponent<Bullet>().Deactivate();
-            Destroy(gameObject);
         } else if (other.gameObject.tag == "Player")
         {
             //TODO
             GameManager.instance.LoseHealth();
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+
+        if (other.gameObject.tag == "Bullet")
+        {
+            if (!hasArmor)
+            {
+                Destroy(gameObject);
+            }
+            other.gameObject.GetComponent<Bullet>().Deactivate();
         }
     }
 
